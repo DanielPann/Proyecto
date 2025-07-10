@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción Cardiaca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center mb-4">Predicción de Enfermedades Cardíacas</h1>
+
+    <form action="/predict" method="post" class="card p-4 shadow">
+        <div class="mb-3">
+            <label for="ciclistas" class="form-label">Porcentaje de ciclistas:</label>
+            <input type="text" class="form-control" name="ciclistas" required>
+        </div>
+        <div class="mb-3">
+            <label for="fumadores" class="form-label">Porcentaje de fumadores:</label>
+            <input type="text" class="form-control" name="fumadores" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Predecir</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="alert alert-success mt-4 text-center">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+
+    <div class="mt-4 text-center">
+        <a href="/historial" class="btn btn-secondary">Ver historial</a>
+    </div>
+</body>
+</html>
